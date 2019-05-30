@@ -1,0 +1,47 @@
+# Define the port where the UAA server would be running
+server:
+  port: 8769
+  # Use different context-path to avoid session cookie overlapping
+  context-path: /uaa
+  servlet:
+     context-path: /uaa
+  use-forward-headers: false
+
+info:
+   component: oauth2 Server
+  
+eureka:
+  instance:
+      hostname: localhost
+      port: 8888
+  client:
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka/
+
+security:
+   basic:
+      enabled: false
+   user:
+      password: password
+   ignored: /css/**,/js/**,/favicon.ico,/webjars/**
+      
+spring:
+   h2:
+      console:
+         enabled: true
+         path: /h2-console
+   datasource:
+      url: jdbc:h2:mem:testdb;MODE=MySQL;DB_CLOSE_DELAY=-1
+      username: sa
+      password:
+      driver-class-name: org.h2.Driver
+   jpa:
+      generate-ddl: false
+      hibernate:
+         ddl-auto: none
+                    
+logging:
+   level:
+      ROOT: INFO
+      org.springframework.web: INFO
+      org.springframework.security: DEBUG
