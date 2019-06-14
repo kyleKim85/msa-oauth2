@@ -1,11 +1,8 @@
-# Define the port where the UAA server would be running
 server:
   port: 8769
-  # Use different context-path to avoid session cookie overlapping
   context-path: /uaa
   servlet:
      context-path: /uaa
-  use-forward-headers: false
 
 info:
    component: oauth2 Server
@@ -21,8 +18,6 @@ eureka:
 security:
    basic:
       enabled: false
-   user:
-      password: password
    ignored: /css/**,/js/**,/favicon.ico,/webjars/**
       
 spring:

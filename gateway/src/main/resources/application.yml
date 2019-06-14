@@ -25,14 +25,26 @@ zuul:
       api:
          path: /api/**
          serviceId: api-service
-         strip-prefix: true
+         stripPrefix: true
       oauth:
          sensitiveHeaders:
          path: /uaa/**
          serviceId: oauth2-server
-         strip-prefix: false
-   add-proxy-headers: true
-            
+         stripPrefix: false
+   addProxyHeaders: true
+   
+security:
+   oauth2:
+      resource:
+         jwt:
+            key-value: |
+               -----BEGIN PUBLIC KEY-----
+               MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCNMzaGp8LaxddOTYQywlM9Csjr
+               /dVcKUSF8p15sZDmerLXNQ006vVWa1AVK0XW1zCv3N45Wk+LgT83v/PZtD2qkM8v
+               1qHoLkPU3kKYl6AYIgFvNcFnNuEUi4P2QIAMEBadqCatvzqKsP+WybSDe5fVFZ54
+               0+gPisMfdASEOoDwDwIDAQAB
+               -----END PUBLIC KEY-----
+
 logging:
    level:
       ROOT: INFO
