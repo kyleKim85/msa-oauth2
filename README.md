@@ -21,7 +21,7 @@ Security for Microservices
 ## service-registry
 * Client Side Service Discovery Server (Eureka Server)
 * MSA 환경에서 서비스 클라이언트가 서비스를 호출할때 서비스의 위치를 알아낼 수 있는 기능을 제공
-* Eureka Client의 headtbeats를 받아서 service의 상태를 관리
+* Eureka Client의 heartbeat를 받아서 service의 상태를 관리
 * Standalone으로 동작, 또는 Peer를 등록해서 사용도 가능
 * **@EnableEurekaServer** annotation으로 설정
 
